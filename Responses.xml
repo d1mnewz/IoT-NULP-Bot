@@ -1,0 +1,19 @@
+﻿<Responses>
+ <Response intent="Приветствие">
+    <Text>Здравствуй, мой собеседник!</Text>
+    <Text>Приветствую вас!</Text>
+    <Text>Добрый день.</Text>
+    <Text>Рада с вами побеседовать.</Text>
+    <Text>Какая встреча!</Text>
+    <Text>Рада вас поприветствовать!</Text>
+    <Text>Позвольте поприветствовать вас!</Text>
+    <Text>Добрый день. Холодно сегодня.</Text>
+    <Text>Кто вы?</Text>
+    <Text>Зачем вы потревожили меня?</Text>
+    <Text>Здравствуйте! Я живая!</Text>
+    <Text>Что происходит?</Text>
+ </Response>
+ <Response intent="Согласие">
+    <Text>Да.</Text>
+ </Response>
+</Responses>
