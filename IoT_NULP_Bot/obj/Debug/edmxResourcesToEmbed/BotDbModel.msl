@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IoT_BotDbModelStoreContainer" CdmEntityContainer="IoT_BotDbEntities">
+    <EntitySetMapping Name="Intents">
+      <EntityTypeMapping TypeName="IoT_BotDbModel.Intent">
+        <MappingFragment StoreEntitySet="Intents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Responses">
+      <EntityTypeMapping TypeName="IoT_BotDbModel.Respons">
+        <MappingFragment StoreEntitySet="Responses">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="intentId" ColumnName="intentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

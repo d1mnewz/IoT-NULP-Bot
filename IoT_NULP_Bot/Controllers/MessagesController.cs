@@ -28,8 +28,10 @@ namespace IoT_NULP_Bot
             if (activity.Type == ActivityTypes.Message)
             {
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+
                 var wit = new WitClient("RKIJ5LVF4GKLEWJ5O5NPUPXVCQMKGLJW");
                 var msg = wit.Converse(activity.From.Id, activity.Text);
+
                 var intent = string.Empty; double conf = 0;
                 try
                 {
@@ -46,23 +48,17 @@ namespace IoT_NULP_Bot
                         }
                     }
                 }
-                catch (KeyNotFoundException exc)
+                catch (KeyNotFoundException)
                 {
 
                 }
-                string res = "Я вас не понимаю...";
-                var doc = XDocument.Load(@"C:\Users\d1mne\Documents\Visual Studio 2015\Projects\IoT_NULP_Bot\Responses.xml");
-                var r = (from x in doc.Descendants("Response")
-                         where x.Attribute("intent").Value == intent
-                         select x).FirstOrDefault();
-                if (r != null)
+                // default reply if intent not found in database
+                string res = "Я вас не розумію :(";
+                using (var ctx = new IoT_BotDbEntities())
                 {
-                    var arr = (from x in r.Descendants("Text") select x.Value).ToArray();
-                    if (arr != null && arr.Length > 0)
-                    {
-                        var rnd = new Random();
-                        res = arr[rnd.Next(0, arr.Length)];
-                    }
+                    var arrToRandomFrom = ctx.Responses.Where(x => x.Intent.content == intent).ToArray();
+                    if(arrToRandomFrom.Length > 0)
+                        res = arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)].content;
                 }
 
                 // return our reply to the user
