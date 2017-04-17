@@ -141,6 +141,7 @@
     </Content>
     <Content Include="default.html" />
     <Content Include="Global.asax" />
+    <Content Include="privacypolicy.htm" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -183,6 +184,7 @@
     <Content Include="BotDbModel.edmx.diagram">
       <DependentUpon>BotDbModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ainulp - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

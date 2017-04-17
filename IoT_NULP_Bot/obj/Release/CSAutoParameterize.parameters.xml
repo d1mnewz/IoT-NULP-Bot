@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IoT_BotDbEntities-Web.config Connection String" description="IoT_BotDbEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/BotDbModel.csdl|res://*/BotDbModel.ssdl|res://*/BotDbModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=daphneserver.database.windows.net;initial catalog=IoT_BotDb;persist security info=True;user id=serveradmin;password=hkuhN5FSaLjg39h6;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\d1mne\\Documents\\GitHub\\IoT-NULP-Bot\\IoT_NULP_Bot\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='IoT_BotDbEntities']/@connectionString" />
+  </parameter>
+</parameters>
