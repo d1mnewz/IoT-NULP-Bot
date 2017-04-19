@@ -56,6 +56,11 @@ namespace IoT_NULP_Bot.Controllers
                         var arrToRandomFrom = ctx.Responses.Where(x => x.Intent.content == intent).ToArray();
                         if (arrToRandomFrom.Length > 0)
                             res = arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)].content;
+                        else
+                        {
+                            var noreply = ctx.Responses.Where(x => x.Intent.content == "noreply").ToArray();
+                            res = noreply[new Random().Next(noreply.Length)].content;
+                        }
                     }
 
                     // return our reply to the user

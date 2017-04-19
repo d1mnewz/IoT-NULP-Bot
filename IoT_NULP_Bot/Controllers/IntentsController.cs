@@ -16,9 +16,9 @@ namespace IoT_NULP_Bot.Controllers
         private IoT_BotDbEntities db = new IoT_BotDbEntities();
 
         // GET: Intents
-        public async Task<ActionResult> Index()
+        public  ViewResult Index()
         {
-            return View(await db.Intents.ToListAsync());
+            return View(db.Intents.ToList());
         }
 
         // GET: Intents/Details/5
@@ -33,11 +33,8 @@ namespace IoT_NULP_Bot.Controllers
             {
                 return HttpNotFound();
             }
-            var res = intent.Responses.ToList();
-            if (res.Count > 0)
-                return View(res);
-            else return RedirectToAction("Index");
-            
+            return View(intent);
+
         }
 
         // GET: Intents/Create

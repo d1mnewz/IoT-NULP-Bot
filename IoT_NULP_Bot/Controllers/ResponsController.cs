@@ -38,9 +38,9 @@ namespace IoT_NULP_Bot.Controllers
         }
 
         // GET: Respons/Create
-        public ActionResult Create()
+        public ActionResult Create(int id = 0)
         {
-            ViewBag.intentId = new SelectList(db.Intents, "id", "content");
+            ViewBag.intentId = new SelectList(db.Intents, "id", "content", id);
             return View();
         }
 
