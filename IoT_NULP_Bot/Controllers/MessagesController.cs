@@ -49,29 +49,33 @@ namespace IoT_NULP_Bot.Controllers
                     catch (KeyNotFoundException)
                     {
                     }
-                    // default reply if intent not found in database
-                    string res = "Я вас не розумію :(";
-                    using (var ctx = new IoT_BotDbEntities())
+                    Activity reply = activity.CreateReply();
+                  
+                    switch (intent)
                     {
-                        var arrToRandomFrom = ctx.Responses.Where(x => x.Intent.content == intent).ToArray();
-                        if (arrToRandomFrom.Length > 0)
-                            res = arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)].content;
-                        else
-                        {
-                            var noreply = ctx.Responses.Where(x => x.Intent.content == "noreply").ToArray();
-                            res = noreply[new Random().Next(noreply.Length)].content;
-                        }
-                    }
 
-                    // return our reply to the user
-                    Activity reply = activity.CreateReply(res);
+                        case "статистика вступу":
+                            reply.Attachments = new List<Attachment>();
+                            Attachment attachment = new Attachment();
+                            attachment.ContentType = "image/png";
+                            attachment.ContentUrl = @"http://image.prntscr.com/image/ee2502f6a68041e1813f1bcd125a8bb2.png";
+                            Attachment secondAttachment = new Attachment();
+                            secondAttachment.ContentType = "image/png";
+                            secondAttachment.ContentUrl =
+                                @"http://image.prntscr.com/image/258aa8e844d74ab7b63447a9f551ecbd.png";
+                            reply.Attachments.Add(attachment);
+                            reply.Attachments.Add(secondAttachment);
+                            reply.Text = GetReplyFromDb(intent);
+                            break;
+                        default:
+                            reply.Text = GetReplyFromDb(intent);
+                            break;
+                    }
                     await connector.Conversations.ReplyToActivityAsync(reply);
                     break;
                 case ActivityTypes.ConversationUpdate:
                     if (!_isSecond)
                     {
-
-
                         IMessageActivity imActivity = Activity.CreateMessageActivity();
                         imActivity.From = new ChannelAccount(activity.ChannelId, "AI @ Lviv Polytechnic");
                         imActivity.Conversation = new ConversationAccount(true, activity.Conversation.Id);
@@ -87,6 +91,24 @@ namespace IoT_NULP_Bot.Controllers
 
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
+        }
+
+        private static string GetReplyFromDb(string intent)
+        {
+            string res;
+            using (var ctx = new IoT_BotDbEntities())
+            {
+                var arrToRandomFrom = ctx.Responses.Where(x => x.Intent.content == intent).ToArray();
+                if (arrToRandomFrom.Length > 0)
+                    res = arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)].content;
+                else
+                {
+                    var noreply = ctx.Responses.Where(x => x.Intent.content == "noreply").ToArray();
+                    res = noreply[new Random().Next(noreply.Length)].content;
+                }
+            }
+
+            return res;
         }
     }
 }
