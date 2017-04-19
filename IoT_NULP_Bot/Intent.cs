@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace IoT_NULP_Bot
 {
     using System;
@@ -21,6 +23,7 @@ namespace IoT_NULP_Bot
         }
     
         public int id { get; set; }
+        [DataType(DataType.MultilineText)]
         public string content { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

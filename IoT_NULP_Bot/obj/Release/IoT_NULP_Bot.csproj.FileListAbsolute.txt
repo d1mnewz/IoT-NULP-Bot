@@ -44,3 +44,21 @@ C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\zh-hans\Microsoft.
 C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\obj\Release\IoT_NULP_Bot.csprojResolveAssemblyReference.cache
 C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\obj\Release\Bot Application1.dll
 C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\obj\Release\Bot Application1.pdb
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\Antlr3.Runtime.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Helpers.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Mvc.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Optimization.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Razor.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.WebPages.Deployment.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.WebPages.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.WebPages.Razor.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\WebGrease.dll
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\Antlr3.Runtime.pdb
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Helpers.xml
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Mvc.xml
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Optimization.xml
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.Razor.xml
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.WebPages.xml
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.WebPages.Deployment.xml
+C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\bin\System.Web.WebPages.Razor.xml
