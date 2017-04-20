@@ -13,7 +13,8 @@ namespace IoT_NULP_Bot.Controllers
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        private bool _isSecond = false;
+
+        private static IoT_BotDbEntities db = new IoT_BotDbEntities();
 
         /// <summary>
         /// POST: api/Messages
@@ -82,19 +83,7 @@ namespace IoT_NULP_Bot.Controllers
                     }
                     await connector.Conversations.ReplyToActivityAsync(reply);
                     break;
-                case ActivityTypes.ConversationUpdate:
-                    if (!_isSecond)
-                    {
-                        IMessageActivity imActivity = Activity.CreateMessageActivity();
-                        imActivity.From = new ChannelAccount(activity.ChannelId, "AI @ Lviv Polytechnic");
-                        imActivity.Conversation = new ConversationAccount(true, activity.Conversation.Id);
-                        imActivity.ChannelId = activity.ChannelId;
-                        imActivity.Text =
-                            "Привіт! Я розмовний бот, запитай в мене про Штучний Інтелект, Львівську Політехніку і лемурів :)";
-                        imActivity.Locale = "en-En";
-                        connector.Conversations.SendToConversation((Activity) imActivity);
-                        _isSecond = true;
-                    }
+                default:
                     break;
             }
 
@@ -104,29 +93,21 @@ namespace IoT_NULP_Bot.Controllers
 
         private static Photo GetRandomPhoto()
         {
-            using (var ctx = new IoT_BotDbEntities())
-            {
-                var arrToRandomFrom = ctx.Photos.ToArray();
+                var arrToRandomFrom = db.Photos.ToArray();
                 return arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)];
-            }
+            
         }
 
         private static string GetReplyFromDb(string intent)
         {
-            string res;
-            using (var ctx = new IoT_BotDbEntities())
-            {
-                var arrToRandomFrom = ctx.Responses.Where(x => x.Intent.content == intent).ToArray();
+                var arrToRandomFrom = db.Responses.Where(x => x.Intent.content == intent).ToArray();
                 if (arrToRandomFrom.Length > 0)
-                    res = arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)].content;
+                    return arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)].content;
                 else
                 {
-                    var noreply = ctx.Responses.Where(x => x.Intent.content == "noreply").ToArray();
-                    res = noreply[new Random().Next(noreply.Length)].content;
+                    var noreply = db.Responses.Where(x => x.Intent.content == "noreply").ToArray();
+                    return noreply[new Random().Next(noreply.Length)].content;
                 }
-            }
-
-            return res;
         }
     }
 }
