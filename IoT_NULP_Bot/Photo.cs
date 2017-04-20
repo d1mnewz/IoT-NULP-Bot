@@ -11,11 +11,13 @@ namespace IoT_NULP_Bot
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Photo
     {
         public int id { get; set; }
         public string photoLink { get; set; }
+        [System.ComponentModel.DataAnnotations.DataType(DataType.MultilineText)]
         public string descrip { get; set; }
     }
 }

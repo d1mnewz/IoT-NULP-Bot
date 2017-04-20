@@ -29,6 +29,14 @@ CREATE TABLE Intents (
   PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS Photos
+
+CREATE TABLE Photos(
+id INTEGER IDENTITY(1,1),
+photoLink nvarchar(1024) not null, 
+descrip nvarchar(1024),
+primary key(id)
+);
 -- ---
 -- Foreign Keys 
 -- ---

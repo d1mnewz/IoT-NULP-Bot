@@ -11,10 +11,12 @@ namespace IoT_NULP_Bot
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Respons
     {
         public int id { get; set; }
+        [System.ComponentModel.DataAnnotations.DataType(DataType.MultilineText)]
         public string content { get; set; }
         public Nullable<int> intentId { get; set; }
     
