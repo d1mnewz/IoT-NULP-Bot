@@ -26,6 +26,7 @@ namespace IoT_NULP_Bot
         }
     
         public virtual DbSet<Intent> Intents { get; set; }
+        public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<Respons> Responses { get; set; }
     }
 }

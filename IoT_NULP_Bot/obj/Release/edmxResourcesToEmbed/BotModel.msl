@@ -9,21 +9,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="IoT_BotDbModel.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="photoLink" ColumnName="photoLink" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Responses">
       <EntityTypeMapping TypeName="IoT_BotDbModel.Respons">
         <MappingFragment StoreEntitySet="Responses">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="content" ColumnName="content" />
           <ScalarProperty Name="intentId" ColumnName="intentId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Photos">
-      <EntityTypeMapping TypeName="IoT_BotDbModel.Photo">
-        <MappingFragment StoreEntitySet="Photos">
-          <ScalarProperty Name="descrip" ColumnName="descrip" />
-          <ScalarProperty Name="photoLink" ColumnName="photoLink" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

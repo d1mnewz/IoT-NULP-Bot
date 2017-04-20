@@ -67,6 +67,15 @@ namespace IoT_NULP_Bot.Controllers
                             reply.Attachments.Add(secondAttachment);
                             reply.Text = GetReplyFromDb(intent);
                             break;
+                        case "фото":
+                            var photo = GetRandomPhoto();
+                            reply.Attachments = new List<Attachment>();
+                            Attachment attachment1 = new Attachment();
+                            attachment1.ContentType = "image/png";
+                            attachment1.ContentUrl = photo.photoLink;
+                            reply.Attachments.Add(attachment1);
+                            reply.Text = photo.descrip;
+                            break;
                         default:
                             reply.Text = GetReplyFromDb(intent);
                             break;
@@ -91,6 +100,15 @@ namespace IoT_NULP_Bot.Controllers
 
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
+        }
+
+        private static Photo GetRandomPhoto()
+        {
+            using (var ctx = new IoT_BotDbEntities())
+            {
+                var arrToRandomFrom = ctx.Photos.ToArray();
+                return arrToRandomFrom[new Random().Next(arrToRandomFrom.Length)];
+            }
         }
 
         private static string GetReplyFromDb(string intent)

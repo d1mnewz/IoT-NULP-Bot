@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\d1mne\Documents\Visual Studio 2015\Projects\IoT_NULP_Bot\IoT-NULP-Bot\IoT_NULP_Bot\BotDbModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\d1mne\Documents\GitHub\IoT-NULP-Bot\IoT_NULP_Bot\BotModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

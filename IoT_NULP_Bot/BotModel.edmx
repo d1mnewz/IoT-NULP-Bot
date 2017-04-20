@@ -12,6 +12,14 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="content" Type="nvarchar" MaxLength="512" Nullable="false" />
         </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="photoLink" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="descrip" Type="nvarchar" MaxLength="1024" />
+        </EntityType>
         <EntityType Name="Responses">
           <Key>
             <PropertyRef Name="id" />
@@ -20,7 +28,7 @@
           <Property Name="content" Type="nvarchar" MaxLength="1024" />
           <Property Name="intentId" Type="int" />
         </EntityType>
-        <Association Name="FK__Responses__inten__4222D4EF">
+        <Association Name="FK__Responses__inten__59FA5E80">
           <End Role="Intents" Type="Self.Intents" Multiplicity="0..1" />
           <End Role="Responses" Type="Self.Responses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -34,8 +42,9 @@
         </Association>
         <EntityContainer Name="IoT_BotDbModelStoreContainer">
           <EntitySet Name="Intents" EntityType="Self.Intents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Responses" EntityType="Self.Responses" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Responses__inten__4222D4EF" Association="Self.FK__Responses__inten__4222D4EF">
+          <AssociationSet Name="FK__Responses__inten__59FA5E80" Association="Self.FK__Responses__inten__59FA5E80">
             <End Role="Intents" EntitySet="Intents" />
             <End Role="Responses" EntitySet="Responses" />
           </AssociationSet>
@@ -51,7 +60,15 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="content" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Responses" Relationship="Self.FK__Responses__inten__4222D4EF" FromRole="Intents" ToRole="Responses" />
+          <NavigationProperty Name="Responses" Relationship="Self.FK__Responses__inten__59FA5E80" FromRole="Intents" ToRole="Responses" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="photoLink" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descrip" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Respons">
           <Key>
@@ -60,9 +77,9 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="content" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Name="intentId" Type="Int32" />
-          <NavigationProperty Name="Intent" Relationship="Self.FK__Responses__inten__4222D4EF" FromRole="Responses" ToRole="Intents" />
+          <NavigationProperty Name="Intent" Relationship="Self.FK__Responses__inten__59FA5E80" FromRole="Responses" ToRole="Intents" />
         </EntityType>
-        <Association Name="FK__Responses__inten__4222D4EF">
+        <Association Name="FK__Responses__inten__59FA5E80">
           <End Role="Intents" Type="Self.Intent" Multiplicity="0..1" />
           <End Role="Responses" Type="Self.Respons" Multiplicity="*" />
           <ReferentialConstraint>
@@ -76,8 +93,9 @@
         </Association>
         <EntityContainer Name="IoT_BotDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Intents" EntityType="Self.Intent" />
+          <EntitySet Name="Photos" EntityType="Self.Photo" />
           <EntitySet Name="Responses" EntityType="Self.Respons" />
-          <AssociationSet Name="FK__Responses__inten__4222D4EF" Association="Self.FK__Responses__inten__4222D4EF">
+          <AssociationSet Name="FK__Responses__inten__59FA5E80" Association="Self.FK__Responses__inten__59FA5E80">
             <End Role="Intents" EntitySet="Intents" />
             <End Role="Responses" EntitySet="Responses" />
           </AssociationSet>
@@ -93,6 +111,15 @@
               <MappingFragment StoreEntitySet="Intents">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="content" ColumnName="content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="IoT_BotDbModel.Photo">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="photoLink" ColumnName="photoLink" />
+                <ScalarProperty Name="descrip" ColumnName="descrip" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -4,10 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0fc6052c7caf49a5bd9107e79e8b4375" Name="Diagram1">
+      <Diagram DiagramId="7651ab7cb8a64874bb34d1825ead8edf" Name="Diagram1">
         <EntityTypeShape EntityType="IoT_BotDbModel.Intent" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IoT_BotDbModel.Photo" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IoT_BotDbModel.Respons" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="IoT_BotDbModel.FK__Responses__inten__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="IoT_BotDbModel.FK__Responses__inten__59FA5E80" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
