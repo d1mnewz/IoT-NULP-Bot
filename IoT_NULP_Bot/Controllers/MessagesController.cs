@@ -23,11 +23,11 @@ namespace IoT_NULP_Bot.Controllers
         public async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
             ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-            var wit = new WitClient("RKIJ5LVF4GKLEWJ5O5NPUPXVCQMKGLJW");
+            
             switch (activity.Type)
             {
                 case ActivityTypes.Message:
-
+                    WitClient wit = new WitClient("ZHKXGGSDV7VISTIZDWQOPWJ7DZYQ3APD");
                     var msg = wit.Converse(activity.From.Id, activity.Text);
 
                     var intent = string.Empty;
